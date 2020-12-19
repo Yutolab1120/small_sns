@@ -29,7 +29,7 @@ if( !empty($_POST['btn_submit']) ) {
 	
 	// メッセージの入力チェック
 	if( empty($_POST['message']) ) {
-		$error_message[] = 'ひと言メッセージを入力してください。';
+		$error_message[] = 'メッセージを入力してください。';
 	} else {
 		$clean['message'] = htmlspecialchars( $_POST['message'], ENT_QUOTES);
 		$clean['message'] = preg_replace( '/\\r\\n|\\n|\\r/', '<br>', $clean['message']);

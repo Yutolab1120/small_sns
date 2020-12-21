@@ -1,7 +1,7 @@
 <?php
 
 // メッセージを保存するファイルのパス設定
-define( 'FILENAME', './message.txt');
+define('FILENAME', './message.txt');
 
 // タイムゾーン設定
 date_default_timezone_set('Asia/Tokyo');
@@ -18,63 +18,62 @@ $error_message = array();
 $clean = array();
 
 
-if( !empty($_POST['btn_submit']) ) {
-	
-	// 表示名の入力チェック
-	if( empty($_POST['view_name']) ) {
-		$error_message[] = '表示名を入力してください。';
-	} else {
-		$clean['view_name'] = htmlspecialchars( $_POST['view_name'], ENT_QUOTES);
-	}
-	
-	// メッセージの入力チェック
-	if( empty($_POST['message']) ) {
-		$error_message[] = 'メッセージを入力してください。';
-	} else {
-		$clean['message'] = htmlspecialchars( $_POST['message'], ENT_QUOTES);
-		$clean['message'] = preg_replace( '/\\r\\n|\\n|\\r/', '<br>', $clean['message']);
-	}
+if (!empty($_POST['btn_submit'])) {
 
-	if( empty($error_message) ) {
+    // 表示名の入力チェック
+    if (empty($_POST['view_name'])) {
+        $error_message[] = '表示名を入力してください。';
+    } else {
+        $clean['view_name'] = htmlspecialchars($_POST['view_name'], ENT_QUOTES);
+    }
 
-		if( $file_handle = fopen( FILENAME, "a") ) {
-	
-		    // 書き込み日時を取得
-			$now_date = date("Y-m-d H:i:s");
-		
-			// 書き込むデータを作成
-			$data = "'".$clean['view_name']."','".$clean['message']."','".$now_date."'\n";
-		
-			// 書き込み
-			fwrite( $file_handle, $data);
-		
-			// ファイルを閉じる
-			fclose( $file_handle);
-	
-			$success_message = 'メッセージを書き込みました。';
-		}
-	}
+    // メッセージの入力チェック
+    if (empty($_POST['message'])) {
+        $error_message[] = 'メッセージを入力してください。';
+    } else {
+        $clean['message'] = htmlspecialchars($_POST['message'], ENT_QUOTES);
+        $clean['message'] = preg_replace('/\\r\\n|\\n|\\r/', '<br>', $clean['message']);
+    }
+
+    if (empty($error_message)) {
+
+        if ($file_handle = fopen(FILENAME, "a")) {
+
+            // 書き込み日時を取得
+            $now_date = date("Y-m-d H:i:s");
+
+            // 書き込むデータを作成
+            $data = "'" . $clean['view_name'] . "','" . $clean['message'] . "','" . $now_date . "'\n";
+
+            // 書き込み
+            fwrite($file_handle, $data);
+
+            // ファイルを閉じる
+            fclose($file_handle);
+
+            $success_message = 'メッセージを書き込みました。';
+        }
+    }
 }
 
-if( $file_handle = fopen( FILENAME,'r') ) {
-    while( $data = fgets($file_handle) ){
+if ($file_handle = fopen(FILENAME, 'r')) {
+    while ($data = fgets($file_handle)) {
 
-		$split_data = preg_split( '/\'/', $data);
+        $split_data = preg_split('/\'/', $data);
 
-		$message = array(
-			'view_name' => $split_data[1],
-			'message' => $split_data[3],
-			'post_date' => $split_data[5]
-		);
-		array_unshift( $message_array, $message);
-	}
-    
+        $message = array(
+            'view_name' => $split_data[1],
+            'message' => $split_data[3],
+            'post_date' => $split_data[5]
+        );
+        array_unshift($message_array, $message);
+    }
+
     // ファイルを閉じる
-    fclose( $file_handle);
+    fclose($file_handle);
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -88,67 +87,68 @@ if( $file_handle = fopen( FILENAME,'r') ) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
     <link rel="manifest" href="manifest.json">
-	<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="bagelee">
     <link rel="apple-touch-icon" href="images/icon.jpg" sizes="192x192">
 
-	
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@Yutolab1120" />
     <meta property="og:url" content="http://lisur.hacklife.work" />
     <meta property="og:title" content="LISUR" />
-    <meta property="og:description" content="LISURでもっとシンプルに交じろう。"/>
+    <meta property="og:description" content="LISURでもっとシンプルに交じろう。" />
     <meta property="og:image" content="http://lisur.hacklife.work/dist/images/ogp.png" />
 
 
 </head>
 
 <body>
-<!-- Just an image -->
-<nav class="sticky-top navbar navbar-light bg-light-1">
-  <a class="navbar-brand" href="">
-    <img src="dist/images/logo.png" width="110" height="55" alt="">
-  </a>
-</nav>
-<br>
-<div id="wrap">
-                <section>
-                    <div class='foo foo--inside'>
+    <!-- Just an image -->
+    <nav class="sticky-top navbar navbar-light bg-light-1">
+        <a class="navbar-brand" href="">
+            <img src="dist/images/logo.png" width="100" height="50" alt="">
+        </a>
+    </nav>
+    <br>
+    <div id="wrap">
+        <section>
+            <div class='foo foo--inside'>
 
-                        <?php if( !empty($success_message) ): ?>
-                        <p class="success_message"><?php echo $success_message; ?></p>
-                        <?php endif; ?>
-                        <?php if( !empty($error_message) ): ?>
-                        <ul class="error_message">
-                            <?php foreach( $error_message as $value ): ?>
+                <?php if (!empty($success_message)) : ?>
+                    <p class="success_message"><?php echo $success_message; ?></p>
+                <?php endif; ?>
+                <?php if (!empty($error_message)) : ?>
+                    <ul class="error_message">
+                        <?php foreach ($error_message as $value) : ?>
                             <li>・<?php echo $value; ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                        <?php endif; ?>
-                  
-                        <form method="post">
-                            <div>
-                                <input id="view_name" type="text" name="view_name" value="" placeholder="表示させたい名前を入力" value="表示させたいテキストを記述">
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
 
-                                <textarea id="message" name="message" placeholder="最近どうしてる？"></textarea>
-                            </div>
-                            <input class="button_sousin" type="submit" name="btn_submit" value="投稿" >
-                        </form>
+                <form method="post">
+                    <div>
+                        <input id="view_name" type="text" name="view_name" value="" placeholder="&#xf007;&nbsp;&nbsp;名前を入力">
 
-
+                        <textarea id="message" name="message" placeholder="&#xf27a;&nbsp;&nbsp;最近どうしてる？"></textarea>
                     </div>
-                </section>
+                    <input class="button_sousin" type="submit" name="btn_submit" value="&#xf1d8;&nbsp;&nbsp;投稿する">
+                </form>
+
+
+            </div>
+        </section>
+
+        <section>
+            <div class='foo foo--inside'>
+
+
+
 
                 <section>
-                    <div class='foo foo--inside'>
-
-                       
-
-
-                        <section>
-                            <?php if( !empty($message_array) ){ ?>
-                            <?php foreach( $message_array as $value ){ ?>
+                    <?php if (!empty($message_array)) { ?>
+                        <?php foreach ($message_array as $value) { ?>
                             <article>
                                 <div class="info">
                                     <h2><?php echo $value['view_name']; ?></h2>
@@ -156,27 +156,27 @@ if( $file_handle = fopen( FILENAME,'r') ) {
                                 </div>
                                 <p><?php echo $value['message']; ?></p>
                             </article>
-                            <?php } ?>
-                            <?php } ?>
-                        </section>
-
-                    </div>
+                        <?php } ?>
+                    <?php } ?>
                 </section>
-            </section>
-</div>
+
+            </div>
+        </section>
+        </section>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
-<script>
-    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service_worker.js').then(function(registration) {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(function(err) {
-        console.log('ServiceWorker registration failed: ', err);
-    });
-    }
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service_worker.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
     </script>
-</div>
+    </div>
 </body>
 
 </html>

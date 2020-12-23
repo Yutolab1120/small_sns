@@ -106,11 +106,13 @@ if ($file_handle = fopen(FILENAME, 'r')) {
 
 <body>
     <!-- Just an image -->
-    <nav class="sticky-top navbar navbar-light bg-light-1">
-        <a class="navbar-brand" href="">
-            <img src="dist/images/logo.png" width="100" height="50" alt="">
-        </a>
-    </nav>
+  <nav class="sticky-top navbar navbar-light bg-light-1">
+        <div id="wrap">
+            <center><a class="navbar-brand" href="">
+                    <img src="dist/images/logo.png" width="150" height="75" alt="">
+                </a></center>
+        </div>
+  </nav>
     <br>
     <div id="wrap">
         <section>

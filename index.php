@@ -109,7 +109,7 @@ if ($file_handle = fopen(FILENAME, 'r')) {
     <nav class="navbar navbar-light bg-light">
         <div id="wrap">
         <a class="navbar-brand" href="">
-            <center>LISUR<pp>TIMELINE</pp></center>
+            <center>LISUR <pp>TIMELINE</pp></center>
         </a>
         </div>
     </nav>

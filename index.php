@@ -106,14 +106,15 @@ if ($file_handle = fopen(FILENAME, 'r')) {
 
 <body>
     <!-- Just an image -->
-  <nav class="sticky-top navbar navbar-light bg-light-1">
+    <nav class="navbar navbar-light bg-light">
         <div id="wrap">
-            <center><a class="navbar-brand" href="">
-                    <img src="dist/images/logo.png" width="150" height="75" alt="">
-                </a></center>
+        <a class="navbar-brand" href="">
+            <center>LISUR<pp>TIMELINE</pp></center>
+        </a>
         </div>
-  </nav>
-    <br>
+    </nav>
+
+    <br class="one_one">
     <div id="wrap">
         <section>
             <div class='foo foo--inside'>
@@ -128,16 +129,17 @@ if ($file_handle = fopen(FILENAME, 'r')) {
                         <?php endforeach; ?>
                     </ul>
                 <?php endif; ?>
-
-                <form method="post">
-                    <div>
-                        <input id="view_name" type="text" name="view_name" value="" placeholder="&#xf007;&nbsp;&nbsp;名前を入力">
-
-                        <textarea id="message" name="message" placeholder="&#xf27a;&nbsp;&nbsp;最近どうしてる？"></textarea>
-                    </div>
-                    <input class="button_sousin" type="submit" name="btn_submit" value="&#xf1d8;&nbsp;&nbsp;投稿する">
-                </form>
-
+                <article>
+                    <form method="post">
+                        <div>
+                            <input class="input" id="view_name" type="text" name="view_name" value="" placeholder="&#xf007;&nbsp;&nbsp;名前を入力">
+                            <div class="underline"></div>
+                            <textarea class="input" id="message" name="message" placeholder="&#xf27a;&nbsp;&nbsp;最近どうしてる？"></textarea>
+                            <div class="underline"></div>
+                        </div><br>
+                        <input class="button_sousin" type="submit" name="btn_submit" value="&#xf1d8;&nbsp;&nbsp;投稿する">
+                    </form>
+                </article>
 
             </div>
         </section>
@@ -149,6 +151,7 @@ if ($file_handle = fopen(FILENAME, 'r')) {
 
 
                 <section>
+                    <!-- ここにメッセージ -->
                     <?php if (!empty($message_array)) { ?>
                         <?php foreach ($message_array as $value) { ?>
                             <article>
@@ -160,7 +163,7 @@ if ($file_handle = fopen(FILENAME, 'r')) {
                             </article>
                         <?php } ?>
                     <?php } ?>
-                </section>
+                </section><!-- ここまで -->
 
             </div>
         </section>

@@ -106,11 +106,12 @@ if ($file_handle = fopen(FILENAME, 'r')) {
 
 <body>
     <!-- Just an image -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="sticky-top navbar navbar-light bg-light">
         <div id="wrap">
-        <a class="navbar-brand" href="">
-            <center>LISUR <pp>TIMELINE</pp></center>
-        </a>
+            <a class="navbar-brand" href="">
+                <center>LISUR <pp>TIMELINE</pp>
+                </center>
+            </a>
         </div>
     </nav>
 

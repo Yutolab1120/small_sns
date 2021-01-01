@@ -196,7 +196,7 @@ if ($file_handle = fopen(FILENAME, 'r')) {
 
 
     </div>
-    <button class="fixed_btn" data-toggle="modal" data-target="#exampleModalLong"><i class="fa fa-pencil fa-lg "></i></button>
+    <button type="button" class="btn fixed_btn btn-primary rounded-circle p-0 btn-lg" data-toggle="modal" data-target="#exampleModalLong" style="border: none;background-color: #DB4437; width:4rem;height:4rem;">＋</button>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script>

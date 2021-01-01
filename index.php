@@ -82,7 +82,7 @@ if ($file_handle = fopen(FILENAME, 'r')) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>LISUR TIMELINE</title>
+    <title>mixel +</title>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
@@ -107,17 +107,18 @@ if ($file_handle = fopen(FILENAME, 'r')) {
 
 <body>
     <!-- Just an image -->
-    <nav class="sticky-top navbar navbar-light bg-light">
+    <nav class="sticky-top navbar navbar-light bg-light-1">
         <div id="wrap">
             <a class="navbar-brand" href="">
-                <center>mixel <pp>+</pp></center>
+                <center>
+                    <pp style="font-weight: 400; font-size:30px;">mixel +</pp>
+                </center>
             </a>
         </div>
     </nav>
 
     <br class="one_one">
     <div id="wrap">
-
         <!-- Button trigger modal -->
         <button class="b-b-b" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
             最近の出来事を共有しよう。
@@ -141,7 +142,7 @@ if ($file_handle = fopen(FILENAME, 'r')) {
                                         <div>
                                             <input class="input" id="view_name" type="text" name="view_name" value="" placeholder="&#xf007;&nbsp;&nbsp;名前を入力">
                                             <div class="underline"></div><br>
-                                            <textarea class="input" id="message" name="message" placeholder="&#xf27a;&nbsp;&nbsp;最近の出来事を共有しよう。"></textarea>
+                                            <textarea class="input" id="message" name="message" placeholder="&#xf27a;&nbsp;&nbsp;出来事を共有"></textarea>
                                             <div class="underline"></div><br>
                                         </div><br>
                                         <input class="button_sousin" type="submit" name="btn_submit" value="&#xf1d8;&nbsp;&nbsp;投稿する">
@@ -192,8 +193,10 @@ if ($file_handle = fopen(FILENAME, 'r')) {
             </div>
         </section>
         </section>
-    </div>
 
+
+    </div>
+    <button class="fixed_btn" data-toggle="modal" data-target="#exampleModalLong"><i class="fa fa-pencil fa-lg "></i></button>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script>

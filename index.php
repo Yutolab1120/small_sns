@@ -88,6 +88,7 @@ if ($file_handle = fopen(FILENAME, 'r')) {
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="bagelee">
@@ -109,16 +110,57 @@ if ($file_handle = fopen(FILENAME, 'r')) {
     <nav class="sticky-top navbar navbar-light bg-light">
         <div id="wrap">
             <a class="navbar-brand" href="">
-                <center>LISUR <pp>TIMELINE</pp>
-                </center>
+                <center>mixel <pp>+</pp></center>
             </a>
         </div>
     </nav>
 
     <br class="one_one">
     <div id="wrap">
+
+        <!-- Button trigger modal -->
+        <button class="b-b-b" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+            最近の出来事を共有しよう。
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">ストリームに共有</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <section>
+                            <div class='foo foo--inside'>
+                                <article>
+                                    <form method="post">
+                                        <div>
+                                            <input class="input" id="view_name" type="text" name="view_name" value="" placeholder="&#xf007;&nbsp;&nbsp;名前を入力">
+                                            <div class="underline"></div><br>
+                                            <textarea class="input" id="message" name="message" placeholder="&#xf27a;&nbsp;&nbsp;最近の出来事を共有しよう。"></textarea>
+                                            <div class="underline"></div><br>
+                                        </div><br>
+                                        <input class="button_sousin" type="submit" name="btn_submit" value="&#xf1d8;&nbsp;&nbsp;投稿する">
+                                    </form>
+                                </article>
+
+                            </div>
+                        </section>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <section>
-            <div class='foo foo--inside'>
+            <div class='foo foo--inside'><br>
+
 
                 <?php if (!empty($success_message)) : ?>
                     <p class="success_message"><?php echo $success_message; ?></p>
@@ -130,32 +172,13 @@ if ($file_handle = fopen(FILENAME, 'r')) {
                         <?php endforeach; ?>
                     </ul>
                 <?php endif; ?>
-                <article>
-                    <form method="post">
-                        <div>
-                            <input class="input" id="view_name" type="text" name="view_name" value="" placeholder="&#xf007;&nbsp;&nbsp;名前を入力">
-                            <div class="underline"></div>
-                            <textarea class="input" id="message" name="message" placeholder="&#xf27a;&nbsp;&nbsp;最近どうしてる？"></textarea>
-                            <div class="underline"></div>
-                        </div><br>
-                        <input class="button_sousin" type="submit" name="btn_submit" value="&#xf1d8;&nbsp;&nbsp;投稿する">
-                    </form>
-                </article>
-
-            </div>
-        </section>
-
-        <section>
-            <div class='foo foo--inside'>
-
-
 
 
                 <section>
                     <!-- ここにメッセージ -->
                     <?php if (!empty($message_array)) { ?>
                         <?php foreach ($message_array as $value) { ?>
-                            <article>
+                            <article type="funnys">
                                 <div class="info">
                                     <h2><?php echo $value['view_name']; ?></h2>
                                     <time><?php echo date('Y年m月d日 H:i', strtotime($value['post_date'])); ?></time>
@@ -182,6 +205,14 @@ if ($file_handle = fopen(FILENAME, 'r')) {
             });
         }
     </script>
+    <script>
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </div>
 </body>
 

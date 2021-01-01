@@ -1,7 +1,7 @@
 // キャッシュ名, キャッシュファイルの指定
-var CACHE_NAME = 'LISUR';
+var CACHE_NAME = 'mixel';
 var urlsToCache = [
-	'/lisur.herokuapp.com/',
+	'/mixel.glitch.me/',
 ];
 
 // インストール処理

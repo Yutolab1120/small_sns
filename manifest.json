@@ -1,6 +1,6 @@
 {
-    "short_name": "LISUR",
-    "name": "LISUR",
+    "short_name": "mixel",
+    "name": "mixel",
     "display": "standalone",
     "start_url": "index.php",
     "icons": [

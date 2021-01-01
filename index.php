@@ -98,9 +98,9 @@ if ($file_handle = fopen(FILENAME, 'r')) {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@Yutolab1120" />
     <meta property="og:url" content="http://lisur.hacklife.work" />
-    <meta property="og:title" content="LISUR" />
-    <meta property="og:description" content="LISURでもっとシンプルに交じろう。" />
-    <meta property="og:image" content="http://lisur.hacklife.work/dist/images/ogp.png" />
+    <meta property="og:title" content="mixel" />
+    <meta property="og:description" content="mixelでもっとシンプルに交じろう。" />
+    <meta property="og:image" content="https://mixel.glitch.me/dist/images/ogp.png" />
 
 
 </head>
